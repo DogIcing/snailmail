@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Snail Mail Help Bot</title>
+</head>
+ <body>
+  ​
+  <h1>Hi! I'm the Snail Mail Service Help Bot.</h1>
+  <h2>What are you wondering about?</h2>
+  
+  <button onclick="TrackMyParcel()" id="mainTrack">Track
+   my
+   parcel</button>
+  <button onclick="SendAParcel()" id="mainParcel">Send a
+   parcel</button>
+  <button onclick="SendALetter()" id="mainLetter">Send a
+   letter</button>
+  <button onclick="ViewPrices()" id="mainPrices">View
+   prices</button>
+  <button onclick="Other()"
+   id="mainOther">Other</button>
+  
+  
+  ​<div id="TrackMyOrderSection1">
+   <p>Do you have a tracking number?</p>
+   <button onclick="TrackMyOrderSection1Yes()"
+    id="TrackMyOrderSection1Yes">Yes</button>
+   <button onclick="TrackMyOrderSection1No()"
+    id="TrackMyOrderSection1No">No</button>
+  </div>
+  ​
+  <div id="trackordersectionresponseisyes">
+   <input type="number" id="trackingnum" maxlength="5">
+   <button onclick="submittrackingnum()"
+    id="trackingnumsubmit">Submit</button>
+  </div>
+  ​
+  ​
+  <p id="error"></p>
+  ​<p id="mapresult"></p>
+  <script>
+   const parcels = new Map([
+    ["22999", "delivered"],
+    ["55443", "recieved"],
+    ["32323", "transit"]
+   ]);
+   
+   var section0 = document.getElementById(
+    "TrackMyOrderSection1");
+   section0.style.display = "none";
+   var trackordersectionresponseisyes = document
+    .getElementById(
+     "trackordersectionresponseisyes");
+   trackordersectionresponseisyes.style.display =
+    "none";
+   
+   function TrackMyParcel() {
+    section0.style.display = "block";
+    document.getElementById("mainTrack").disabled =
+     true;
+    document.getElementById("mainParcel").disabled =
+     true;
+    document.getElementById("mainLetter").disabled =
+     true;
+    document.getElementById("mainPrices").disabled =
+     true;
+    document.getElementById("mainOther").disabled =
+     true;
+   }
+   
+   function submittrackingnum() {
+    document.getElementById("trackingnum").disabled =
+     true;
+    document.getElementById("trackingnumsubmit")
+     .disabled =
+     true;
+    
+   }
+   
+   function SendAParcel() {
+    document.getElementById("demo").innerHTML =
+     "Hello World";
+   }
+   
+   function TrackMyOrderSection1No() {
+    document.getElementById("error").innerHTML =
+     "Error. You must have a tracking number to track your parcel. If you did not recieve a tracking number and purchased tracking please contact us.";
+    document.getElementById("TrackMyOrderSection1No")
+     .disabled =
+     true;
+    document.getElementById("TrackMyOrderSection1Yes")
+     .disabled =
+     true;
+   }
+   
+   function TrackMyOrderSection1Yes() {
+    trackordersectionresponseisyes.style.display =
+     "block";
+    document.getElementById("TrackMyOrderSection1No")
+     .disabled =
+     true;
+    document.getElementById("TrackMyOrderSection1Yes")
+     .disabled =
+     true;
+   }
+   
+   function SendALetter() {
+    document.getElementById("demo").innerHTML =
+     "Hello World";
+   }
+   
+   function ViewPrices() {
+    document.getElementById("demo").innerHTML =
+     "Hello World";
+   }
+   
+   function Other() {
+    document.getElementById("demo").innerHTML =
+     "Hello World";
+   }
+  </script>
+  ​
+ </body>
+</html>
